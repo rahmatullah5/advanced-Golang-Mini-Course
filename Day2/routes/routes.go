@@ -12,11 +12,16 @@ func New() *echo.Echo {
 	e.GET("/", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Hello, World!")
 	})
-	e.GET("/users/:id", controllers.GetUserControllers)
-	e.PUT("/users/:id", controllers.UpdateUserControllers)
 	e.DELETE("/users/:id", controllers.DeleteUserControllers)
-	e.GET("/users", controllers.GetUsersControllers)
+	e.PUT("/users/:id", controllers.UpdateUserControllers)
+	e.GET("/users/:id", controllers.GetUserControllers)
 	e.POST("/users", controllers.CreateUserControllers)
+	e.GET("/users", controllers.GetUsersControllers)
 
+	e.DELETE("/books/:id", controllers.DeleteBookController)
+	e.PUT("/books/:id", controllers.UpdateBookController)
+	e.GET("/books/:id", controllers.GetBookController)
+	e.POST("/books", controllers.CreateBookController)
+	e.GET("/books", controllers.GetBooksController)
 	return e
 }
